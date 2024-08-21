@@ -8,6 +8,11 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+:root {
+  --card-height: 300px;
+  --card-width: calc(var(--card-height) / 1.5);
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   background-color: #040404;
@@ -222,7 +227,7 @@ h6 {
   position: relative;
 }
 
-.navbar li+li {
+.navbar li + li {
   margin-left: 30px;
 }
 
@@ -261,7 +266,7 @@ h6 {
 }
 
 .navbar a:hover:before,
-.navbar li:hover>a:before,
+.navbar li:hover > a:before,
 .navbar .active:before {
   visibility: visible;
   width: 25px;
@@ -270,7 +275,7 @@ h6 {
 .navbar a:hover,
 .navbar .active,
 .navbar .active:focus,
-.navbar li:hover>a {
+.navbar li:hover > a {
   color: #fff;
 }
 
@@ -335,7 +340,7 @@ h6 {
   padding: 12px 20px;
 }
 
-.navbar-mobile li+li {
+.navbar-mobile li + li {
   margin: 0;
 }
 
@@ -367,8 +372,14 @@ section.section-show {
 }
 
 section .container {
-  background: rgba(0, 0, 0, 0.9);
+  /* background: rgba(0, 0, 0, 0.9); */
   padding: 30px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -492,7 +503,7 @@ section .container {
 /*--------------------------------------------------------------
 # Skills
 --------------------------------------------------------------*/
-.skills .progress {
+/* .skills .progress {
   height: 60px;
   display: block;
   background: none;
@@ -523,6 +534,43 @@ section .container {
   height: 10px;
   transition: 0.9s;
   background-color: #18d26e;
+} */
+/*--------------------------------------------------------------
+# skills
+--------------------------------------------------------------*/
+.skills {
+  padding-top: 20px;
+}
+
+.skills .icon-box {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  transition: ease-in-out 0.3s;
+  box-shadow: 2px 0 35px 0 rgba(68, 88, 144, 0.12);
+}
+
+.skills .icon-box i {
+  font-size: 59px;
+  padding-right: 10px;
+  line-height: 1;
+}
+
+.skills .icon-box h3 {
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-size: 16px;
+}
+
+.skills .icon-box h3 a {
+  color: #dee2e6bf;
+  transition: ease-in-out 0.3s;
+}
+
+.skills .icon-box:hover a {
+  color: #18d26e;
 }
 
 /*--------------------------------------------------------------
@@ -976,7 +1024,7 @@ section .container {
   font-size: 15px;
 }
 
-.portfolio-details .portfolio-info ul li+li {
+.portfolio-details .portfolio-info ul li + li {
   margin-top: 10px;
 }
 
@@ -1073,7 +1121,7 @@ section .container {
   font-weight: 600;
 }
 
-.contact .php-email-form .error-message br+br {
+.contact .php-email-form .error-message br + br {
   margin-top: 25px;
 }
 
@@ -1142,7 +1190,7 @@ section .container {
   padding: 12px 15px;
 }
 
-.contact .php-email-form button[type=submit] {
+.contact .php-email-form button[type="submit"] {
   background: #18d26e;
   border: 0;
   padding: 10px 30px;
@@ -1151,7 +1199,7 @@ section .container {
   border-radius: 4px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact .php-email-form button[type="submit"]:hover {
   background: #15bb62;
 }
 
@@ -1205,4 +1253,111 @@ section .container {
 
 .credits a:hover {
   color: #fff;
+}
+
+/*--------------------------------------------------------------
+# Projects
+--------------------------------------------------------------*/
+.projects {
+  /* background: #fff; */
+  padding: 60px 0;
+}
+
+.projects .member {
+  overflow: hidden;
+  text-align: center;
+  /* border-radius: 5px; */
+  /* background: #fff; */
+  /* box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08); */
+  transition: 0.3s;
+  /* From https://css.glass */
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.projects .member .member-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.projects .member .member-img:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background: url(../img/team-shape.svg) no-repeat center bottom;
+  background-size: contain;
+  z-index: 1;
+}
+
+.projects .member .social {
+  position: absolute;
+  right: -100%;
+  top: 30px;
+  opacity: 0;
+  border-radius: 4px;
+  transition: 0.5s;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: 2;
+}
+
+.projects .member .social a {
+  transition: color 0.3s;
+  /* color: rgba(1, 41, 112, 0.5); */
+  color: #aaaaaa;
+  margin: 10px 7px;
+  display: block;
+  line-height: 0;
+  text-align: center;
+}
+
+/* .projects .member .social a:hover {
+  color: rgba(1, 41, 112, 0.8);
+} */
+
+.projects .member .social i {
+  font-size: 25px;
+}
+
+.projects .member .member-info {
+  padding: 10px 15px 20px 15px;
+}
+
+.projects .member .member-info h4 {
+  font-weight: 700;
+  margin-bottom: 5px;
+  margin-top: 25px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.projects .member .member-info span {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  color: #aaaaaa;
+}
+
+.projects .member .member-info p {
+  font-style: italic;
+  font-size: 14px;
+  padding-top: 15px;
+  line-height: 26px;
+  color: #5e5e5e;
+}
+
+.projects .member:hover {
+  transform: scale(1.08);
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+}
+
+.projects .member:hover .social {
+  right: 8px;
+  opacity: 1;
 }
